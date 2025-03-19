@@ -91,6 +91,11 @@ namespace LevelDB
             this.Put(key, value, new WriteOptions());
         }
 
+        public void Compact()
+        {
+            LevelDBInterop.leveldb_compact_range(this.Handle, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
+        }
+
         /// <summary>
         /// Set the database entry for "key" to "value".  
         /// Note: consider setting new WriteOptions{ Sync = true }.

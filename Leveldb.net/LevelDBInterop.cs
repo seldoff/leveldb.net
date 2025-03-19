@@ -64,6 +64,9 @@ namespace LevelDB
 
         [DllImport("leveldb.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr leveldb_get(IntPtr /* DB */ db, IntPtr /* ReadOptions*/ options, IntPtr key, IntPtr keylen, out IntPtr vallen, out IntPtr errptr);
+
+        [DllImport("leveldb.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr leveldb_compact_range(IntPtr /* DB */ db, IntPtr skey, IntPtr skeylen, IntPtr ekey, IntPtr ekeylen);
         
         //[DllImport("leveldb.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         //static extern void leveldb_approximate_sizes(IntPtr /* DB */ db, int num_ranges, byte[] range_start_key, long range_start_key_len, byte[] range_limit_key, long range_limit_key_len, out long sizes);
